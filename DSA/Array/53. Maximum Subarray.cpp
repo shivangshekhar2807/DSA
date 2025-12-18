@@ -21,3 +21,25 @@ int maxSubArray(vector<int> &arr)
     }
     return max;
 }
+
+// Better Approach
+
+int maxSubArray(vector<int> &arr)
+{
+    int max = INT_MIN;
+    int curr = 0;
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        curr += arr[i];
+        if (curr > max)
+        {
+            max = curr;
+        }
+        if (curr < 0)
+        {
+            curr = 0;
+        }
+    }
+    return max;
+}
